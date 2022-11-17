@@ -1,0 +1,27 @@
+--------------
+Command Layout
+--------------
+Project_H.Type.Action(Auto,Count,Text,Password)
+
+---------
+Type List
+---------
+Text
+
+-----------
+Action List
+-----------
+Encryption
+Decryption
+
+---------
+Auto List
+---------
+True
+False
+
+-----------------
+Text and Password
+-----------------
+Both of these variables are ones that you have to put it the text is the text you want to encrypt or decrypt and the
+password that you want to use.
