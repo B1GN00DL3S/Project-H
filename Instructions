@@ -1,24 +1,24 @@
 --------------
 Command Layout
 --------------
-Project_H.Type.Action(Auto,Count,Text,Password)
+Project_H.Type.Action(Count,Text,Password)
 
 ---------
 Type List
 ---------
-Text
+Text #Text is what ever you want to encrypt or decrypt
 
 -----------
 Action List
 -----------
-Encryption
-Decryption
+Encryption #Encryption encrypts what ever you input
+Decryption #Decryption decrypts what ever you input
 
----------
-Auto List
----------
-True
-False
+----------
+Count List
+----------
+True #True makes it show the progress of it encrypting and decrypting
+False #False makes it so the progress is not shown while encrypting and decrypting the inputs
 
 -----------------
 Text and Password
