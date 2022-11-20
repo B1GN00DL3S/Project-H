@@ -7,8 +7,7 @@ import hashlib
 import math
 
 class Base:
-    Error = ["Error Command Type Was Not Selected.", "Error Text Was Not Inputed.", "Error Password Was Not Inputed.",
-             "Error Length Of Key Was Not Inputed.", "Error Count Type Was Not Selected.", "Error File Does Not Exist."]#This holds all the Error's
+    Error = ["Error Text Was Not Inputed.", "Error Password Was Not Inputed.", "Error Count Type Was Not Selected."]#This holds all the Error's
 
     y = 2#Length of the key
 
@@ -60,7 +59,6 @@ class Base:
             KeyCount += 1
             # Create new key and check if the max ammount of keys has been hit
             if KeyCount == math.trunc((16 ** y) / len(CharList)) * len(CharList):  # Checks if it has done all possable
-                print("a")
                 KeyCount = len(StartKey)  # Sets up count
                 newStartKey = []  # Sets up newStartKey
                 for x in range(len(CharList)):
@@ -122,7 +120,6 @@ class Base:
                     KeyCount += 1
                     # Create new key and check if the max ammount of keys has been hit
                     if KeyCount == math.trunc((16 ** y) / len(CharList)) * len(CharList):  # Checks if it has done all possable
-                        print("a")
                         KeyCount = len(StartKey)  # Sets up count
                         newStartKey = []  # Sets up newStartKey
                         for x in range(len(CharList)):
@@ -168,106 +165,20 @@ class Base:
         return (DecryptedText)
 
 class Text:
-    def Encryption(*args):
-        try:  # Checks if command is there
-            args[0]
-        except:
-            return (Base.Error[0])
-        if args[0] != True and False:  # No Command Type Error
-            return (Base.Error[0])
-        if args[0]:#Checks if command is there if so then starts to check everything else
-            try:
-                Count = args[1]
-            except:
-                return (Base.Error[4])
-            else:
-                if args[1] == "True" or "False":
-                    Count = args[1]
-                else:
-                    return (Base.Error[4])
-            for x in range(2):
-                try:
-                    args[x + 2]
-                except:
-                    return (Base.Error[x + 2])
-            text, password = args[2:]#Sets text and password from the input
-            if len(text) == 0:
-                return(Base.Error[1])
-            if len(password) == 0:
-                return(Base.Error[2])
-        else:
-            while True:
-                text = input("Enter the text that you want to encrypt: ")
-                if len(text) != 0:
-                    break
-                else:
-                    print(Base.Error[1])
-            while True:
-                password = input("Input the password that you want to use: ")
-                if len(password) != 0:
-                    break
-                else:
-                    print(Base.Error[2])
-            while True:
-                Count = input("Do you want to show the progress (True/False): ").upper()
-                if Count == "TRUE":
-                    Count = True
-                    break
-                elif Count == "FALSE":
-                    Count = False
-                    break
-                else:
-                    print(Base.Error[4])
-        return(Base.Encryption(text,password,Base.y,Base.CharList,Count))
+    def Encryption(Count,Text,Password):
+        if Count != True and False:
+            return(Base.Error[2])
+        elif len(Text) == 0:
+            return(Base.Error[0])
+        elif len(Password) == 0:
+            return(Base.Error[1])
+        return(Base.Encryption(Text,Password,Base.y,Base.CharList,Count))
 
-    def Decryption(*args):
-        try:  # Checks if command is there
-            args[0]
-        except:
-            return (Base.Error[0])
-        if args[0] != True and False:  # No Command Type Error
-            return (Base.Error[0])
-        if args[0]:#Checks if command is there if so then starts to check everything else
-            try:
-                Count = args[1]
-            except:
-                return (Base.Error[4])
-            else:
-                if args[1] == "True" or "False":
-                    Count = args[1]
-                else:
-                    return (Base.Error[4])
-            for x in range(2):
-                try:
-                    args[x + 2]
-                except:
-                    return (Base.Error[x + 2])
-            text, password = args[2:]#Sets text and password from the input
-            if len(text) == 0:
-                return(Base.Error[1])
-            if len(password) == 0:
-                return(Base.Error[2])
-        else:
-            while True:
-                text = input("Enter the text that you want to decrypt: ")
-                if len(text) != 0:
-                    break
-                else:
-                    print(Base.Error[1])
-            while True:
-                password = input("Input the password that you want to use: ")
-                if len(password) != 0:
-                    break
-                else:
-                    print(Base.Error[2])
-            while True:
-                Count = input("Do you want to show the progress (True/False): ").upper()
-                if Count == "TRUE":
-                    Count = True
-                    break
-                elif Count == "FALSE":
-                    Count = False
-                    break
-                else:
-                    print(Base.Error[4])
-        return(Base.Decryption(text,password,Base.y,Base.CharList,Count))
+    def Decryption(Count,Text,Password):
+        if Count != True and False:
+            return(Base.Error[2])
+        elif len(Text) == 0:
+            return(Base.Error[0])
+        elif len(Password) == 0:
+            return(Base.Error[1])
+        return(Base.Decryption(Text,Password,Base.y,Base.CharList,Count))
